@@ -11,7 +11,7 @@
     <div class="px-5 mt-4">
         <div>
             <div class="d-flex mt-4">
-                <? if(isset($_GET['origem'])){
+                <?php if(isset($_GET['origem'])){
                     echo '<a href="publica.php">
                     <svg xmlns="http://www.w3.org/2000/svg" height="32" width="28"
                         viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
@@ -32,10 +32,10 @@
                 <p class="ml-2">Voltar</p>
             </div>
 
-            <div class="<? if (isset($_GET['erro'])) {
+            <div class="<?php if (isset($_GET['erro'])) {
                 echo 'd-none';
             } ?>">
-                <div class="alert alert-success text-center <? if (isset($_GET['origem'])) {
+                <div class="alert alert-success text-center <?php if (isset($_GET['origem'])) {
                 echo 'd-none';
             } ?>" role="alert">
                     Comprovante Válido
@@ -80,7 +80,7 @@
                             <?php echo $registro['situacao']; ?>
                         </p>
                         <p class="text-muted">Signatários: </p>
-                        <? foreach ($signatarios as $sig) {
+                        <?php foreach ($signatarios as $sig) {
                             $usuario = buscarUsuarioPorId($sig['codUsuario']);
                             echo '<p>' . $usuario['nome'] . ' - ' . $sig['mudanca'] . ' [' . $sig['situacao'] . ']';
                         }
@@ -93,7 +93,7 @@
                     <p></p>
                 </div>
             </div>
-            <div class="alert alert-danger text-center <? if (!isset($_GET['erro'])) {
+            <div class="alert alert-danger text-center <?php if (!isset($_GET['erro'])) {
                 echo 'd-none';
             } ?>" role="alert">
                 Comprovante Inválido

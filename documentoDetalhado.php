@@ -51,26 +51,26 @@
                     <?php echo $registro['situacao']; ?>
                 </p>
                 <p class="text-muted">Signatários: </p>
-                <? foreach ($signatarios as $sig) {
+                <?php foreach ($signatarios as $sig) {
                     $usuario = buscarUsuarioPorId($sig['codUsuario']);
                     echo '<p>' . $usuario['nome'] . ' - ' . $sig['mudanca'] . ' [' . $sig['situacao'] . ']';
                 }
                 ?>
                 <p></p>
                 <div class="d-flex justify-content-around mt-4">
-                    <a href="controle/docAssinado.php?codigo=<? echo $codigo ?>" class="btn btn-success btn-sm ml-3 mt-2 <? if ($registro['situacao'] == "Pendente" || $registro['situacao'] == "Recusado" || $registro['situacao'] == "Cancelado") {
+                    <a href="controle/docAssinado.php?codigo=<?php echo $codigo ?>" class="btn btn-success btn-sm ml-3 mt-2 <?php if ($registro['situacao'] == "Pendente" || $registro['situacao'] == "Recusado" || $registro['situacao'] == "Cancelado") {
                         echo 'disabled';
                     } ?>">Imprimir
                         Assinado</a>
-                    <a class="btn btn-danger btn-sm ml-3 text-white mt-2 <? if ($registro['situacao'] == "Assinado" || $registro['situacao'] == "Cancelado"){
+                    <a class="btn btn-danger btn-sm ml-3 text-white mt-2 <?php if ($registro['situacao'] == "Assinado" || $registro['situacao'] == "Cancelado"){
                         echo 'disabled';
-                    } if($dadosUsuario['cargo'] != 1 && $dadosUsuario['cargo'] != 5){ echo " d-none";}?>" href="controle/cancelarSubmissao.php?codigo=<? echo $registro['codigoDocumento'] ?>">Cancelar
+                    } if($dadosUsuario['cargo'] != 1 && $dadosUsuario['cargo'] != 5){ echo " d-none";}?>" href="controle/cancelarSubmissao.php?codigo=<?php echo $registro['codigoDocumento'] ?>">Cancelar
                         Submissão</a>
                 </div>
                 <div class="d-flex justify-content-center mt-4">
-                    <a class="btn btn-warning btn-sm ml-3 mt-2 <? if ($registro['situacao'] == "Pendente" || $registro['situacao'] == "Recusado" || $registro['situacao'] == "Cancelado") {
+                    <a class="btn btn-warning btn-sm ml-3 mt-2 <?php if ($registro['situacao'] == "Pendente" || $registro['situacao'] == "Recusado" || $registro['situacao'] == "Cancelado") {
                         echo 'disabled';
-                    } ?> <? if($dadosUsuario['cargo'] != 1 && $dadosUsuario['cargo'] != 5){ echo " d-none";}?>" href="controle/mudarAcesso.php?codigo=<? echo $registro['codigoDocumento'] ?>">Mudar Acesso </a>
+                    } ?> <?php if($dadosUsuario['cargo'] != 1 && $dadosUsuario['cargo'] != 5){ echo " d-none";}?>" href="controle/mudarAcesso.php?codigo=<?php echo $registro['codigoDocumento'] ?>">Mudar Acesso </a>
                 </div>
             </div>
             <div class="d-flex justify-content-center mb-3 col-lg-6">

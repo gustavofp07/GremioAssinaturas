@@ -219,7 +219,7 @@
 
             
             <div class="tab-pane fade" id="cadastrar" role="tabpanel" aria-labelledby="criar-tab">
-                <? if (isset($_GET['alert'])) {
+                <?php if (isset($_GET['alert'])) {
                     if ($_GET['alert'] == 1) {
                         echo '<div class="alert alert-danger text-center mt-4" role="alert">
                     Apenas arquivos PDF são aceitos
@@ -254,7 +254,7 @@
                                 ?>
                             </select>
                             <input type="hidden" id="nomesArray" name="nomesArray" value="">
-                            <input type="hidden" id="usuario" name="usuario" value="<? echo $dadosUsuario['codigo'] ?>">
+                            <input type="hidden" id="usuario" name="usuario" value="<?php echo $dadosUsuario['codigo'] ?>">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="tipo">Tipo do Documento</label>

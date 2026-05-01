@@ -4,8 +4,8 @@ if (isset($_GET['result'])) {
     $alertClass = ($result == 1) ? 'alert-success' : 'alert-danger';
     $alertMessage = ($result == 1) ? 'Registro salvo com sucesso!' : 'Error';
     ?>
-    <div id="alerta" class="alert <?= $alertClass; ?> alert-dismissible fade show mt-2" role="alert">
-        <?= $alertMessage; ?>
+    <div id="alerta" class="alert <?php echo $alertClass; ?> alert-dismissible fade show mt-2" role="alert">
+        <?php echo $alertMessage; ?>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>

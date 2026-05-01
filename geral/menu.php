@@ -9,10 +9,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
-                <li class="nav-item"><a class="nav-link me-lg-3 <? if ($dadosUsuario['cargo'] != 5 && $dadosUsuario['cargo'] != 1) {
+                <li class="nav-item"><a class="nav-link me-lg-3 <?php if ($dadosUsuario['cargo'] != 5 && $dadosUsuario['cargo'] != 1) {
                             echo "d-none";
                         } ?>" href="administrador.php">Administrativo</a></li>
-                <li class="nav-item"><a class="nav-link me-lg-3 <? if (!isset($dadosUsuario)) {
+                <li class="nav-item"><a class="nav-link me-lg-3 <?php if (!isset($dadosUsuario)) {
                             echo "d-none";
                         } ?>" href="signatario.php">Documentos</a></li>
                 <li class="nav-item"><a class="nav-link me-lg-3" href="publica.php">Página Pública</a></li>

@@ -47,7 +47,7 @@
                 <?php echo $registro['situacao']; ?>
             </p>
             <p class="text-muted">Signatários: </p>
-            <? foreach ($signatarios as $sig) {
+            <?php foreach ($signatarios as $sig) {
                 $usuario = buscarUsuarioPorId($sig['codUsuario']);
                 echo '<p>' . $usuario['nome'] . ' - ' . $sig['mudanca'] . ' [' . $sig['situacao'] . ']';
             }
@@ -57,7 +57,7 @@
         
         <div class="form-row d-flex justify-content-center mb-3">
             <a href="controle/assinatura.php?codigo=<?php echo $registro['codigoDocumento']; ?>&&user=<?php echo $dadosUsuario['codigo']; ?>"
-                class="btn btn-success mt-3 <? foreach ($signatarios as $sig) {
+                class="btn btn-success mt-3 <?php foreach ($signatarios as $sig) {
                     if($sig['codUsuario'] == $dadosUsuario['codigo']){
                         if($sig['situacao'] == "Assinado"){
                             echo 'd-none';
@@ -67,10 +67,10 @@
                 } ?>">Assinar</a>
         </div>
         <div class="d-flex justify-content-center mb-3">
-            <iframe src="<? echo $registro['caminho'] ?>" frameborder="0" scrolling="no"></iframe>
+            <iframe src="<?php echo $registro['caminho'] ?>" frameborder="0" scrolling="no"></iframe>
         </div>
         <div class="d-flex justify-content-center mb-3 pb-3">
-            <a href="controle/docAssinado.php?codigo=<? echo $codigo ?>" class="btn btn-success btn-sm ml-3 mt-2 text-white <? if ($registro['situacao'] == "Pendente" || $registro['situacao'] == "Recusado" || $registro['situacao'] == "Cancelado") {
+            <a href="controle/docAssinado.php?codigo=<?php echo $codigo ?>" class="btn btn-success btn-sm ml-3 mt-2 text-white <?php if ($registro['situacao'] == "Pendente" || $registro['situacao'] == "Recusado" || $registro['situacao'] == "Cancelado") {
                 echo 'disabled';
             } ?>">Imprimir
                 Assinado</a>
